@@ -17,15 +17,33 @@ namespace Pig_Latin_Translator
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnClear_Click_1(object sender, EventArgs e)
+        {
+            englishText.Clear();
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnTranslate_Click(object sender, EventArgs e)
         {
-            englishText.Clear();
-            pigLatinText.Clear();
+            string english = englishText.Text.Trim();
+            if (!string.IsNullOrEmpty(english))
+            {
+                string[] words = english.Split(' ');
+
+                foreach (string word in words)
+                {
+                    pigLatinText.Text += word;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must enter some text to translate.", "Enter text");
+                englishText.Focus();
+            }
         }
     }
 }

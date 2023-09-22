@@ -76,12 +76,14 @@
             // 
             // btnTranslate
             // 
+            this.btnTranslate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnTranslate.Location = new System.Drawing.Point(12, 354);
             this.btnTranslate.Name = "btnTranslate";
             this.btnTranslate.Size = new System.Drawing.Size(75, 23);
             this.btnTranslate.TabIndex = 4;
             this.btnTranslate.Text = "&Translate";
             this.btnTranslate.UseVisualStyleBackColor = true;
+            this.btnTranslate.Click += new System.EventHandler(this.btnTranslate_Click);
             // 
             // btnClear
             // 
@@ -91,6 +93,7 @@
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
             // 
             // btnExit
             // 
@@ -100,11 +103,14 @@
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnTranslate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClear;
             this.ClientSize = new System.Drawing.Size(484, 389);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
