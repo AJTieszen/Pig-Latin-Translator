@@ -33,11 +33,6 @@ namespace Pig_Latin_Translator
             if (!string.IsNullOrEmpty(english))
             {
                 string[] words = english.Split(' ');
-
-                foreach (string word in words)
-                {
-                    pigLatinText.Text += word;
-                }
             }
             else
             {
