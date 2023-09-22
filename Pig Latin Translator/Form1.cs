@@ -38,7 +38,7 @@ namespace Pig_Latin_Translator
 
                 foreach (string word in words)
                 {
-                    pigLatin += translateWord(word) + " ";
+                    pigLatin += TranslateWordWithCaps(word) + " ";
                 }
 
                 pigLatinText.Text = pigLatin;
@@ -73,6 +73,24 @@ namespace Pig_Latin_Translator
                 }
                 word += "ay";
             }
+
+            return word;
+        }
+
+        private string TranslateWordWithCaps(string word)
+        {
+            String punct = "";
+            int length = word.Length;
+
+            if (word.EndsWith(".") || word.EndsWith(",") || word.EndsWith(";") || word.EndsWith(":") ||
+                word.EndsWith("!") || word.EndsWith("?"))
+            {
+                punct = word.Substring(word.Length - 1);
+                word = word.Remove(length - 1, 1);
+            }
+
+            word = translateWord(word);
+            word += punct;
 
             return word;
         }
