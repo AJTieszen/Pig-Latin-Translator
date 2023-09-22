@@ -52,6 +52,28 @@ namespace Pig_Latin_Translator
 
         private string translateWord(string word)
         {
+            char c = word[0];
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            {
+                word += "way";
+            }
+            else
+            {
+                word = word.Remove(0, 1);
+                word += c.ToString();
+                c = word[0];
+
+                while (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'y'&&
+                    c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U' && c != 'y')
+                {
+                    word = word.Remove(0, 1);
+                    word += c.ToString();
+                    c = word[0];
+                }
+                word += "ay";
+            }
+
             return word;
         }
     }
