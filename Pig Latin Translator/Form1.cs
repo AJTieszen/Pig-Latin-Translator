@@ -50,7 +50,7 @@ namespace Pig_Latin_Translator
             }
         }
 
-        private string translateWord(string word)
+        private string TranslateWord(string word)
         {
             char c = word[0];
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
@@ -89,10 +89,69 @@ namespace Pig_Latin_Translator
                 word = word.Remove(length - 1, 1);
             }
 
-            word = translateWord(word);
+            if (IsInitialCap(word))
+                word = ToInitialCap(TranslateWord(word));
+            else if (IsUpper(word))
+                word = TranslateWord(word).ToUpper();
+            else if (IsLower(word))
+                word = TranslateWord(word).ToLower();
+
             word += punct;
 
             return word;
+        }
+
+        private bool IsUpper(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (!IsUpper(word[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        private bool IsLower(string word)
+        {
+            for (int i =0; i < word.Length; i++)
+            {
+                if (!IsLower(word[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        private bool IsInitialCap(string word)
+        {
+            char firstLetter = word[0];
+            string otherLetters = word.Remove(0, 1);
+            if (IsUpper(firstLetter) && IsLower(otherLetters))
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsUpper(char c)
+        {
+            if ((c >= 'A' && c <= 'Z') || c.ToString() == "'")
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsLower(char c)
+        {
+            if ((c >= 'a' && c <= 'z') || c.ToString() == "'")
+                return true;
+            else
+                return false;
+        }
+
+        private string ToInitialCap(string word)
+        {
+            string firstletter = word.Substring(0, 1).ToUpper();
+            string otherLetters = word.Substring(1).ToLower();
+            return firstletter + otherLetters;
         }
     }
 }
