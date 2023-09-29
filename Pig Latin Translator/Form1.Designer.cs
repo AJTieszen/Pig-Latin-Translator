@@ -48,6 +48,7 @@
             // 
             // englishText
             // 
+            this.englishText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.englishText.Location = new System.Drawing.Point(12, 25);
             this.englishText.Multiline = true;
             this.englishText.Name = "englishText";
@@ -57,6 +58,7 @@
             // 
             // pigLatinText
             // 
+            this.pigLatinText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pigLatinText.Location = new System.Drawing.Point(12, 189);
             this.pigLatinText.Multiline = true;
             this.pigLatinText.Name = "pigLatinText";
@@ -87,6 +89,7 @@
             // 
             // btnClear
             // 
+            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.Location = new System.Drawing.Point(93, 354);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
